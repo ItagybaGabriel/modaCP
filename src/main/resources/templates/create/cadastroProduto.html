@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<a href="/">voltar</a>
+	<h2>Preencha os campos:</h2>
+	
+	<form method="post" action="/produto/createProduto">
+		<p>
+			descricao: <input type="text" name="descricao" id="descricao">
+		</p>
+		<p>
+			preço: <input type="text" name="preco" id="preco">
+		</p>
+		<p>
+			fornecedor: <input type="text" name="fornecedor" id="fornecedor">
+		</p>
+		<p>
+			categoria: <input type="text" name="categoria" id="categoria">
+		</p>
+		<input type="submit" value="Salvar" />
+	</form>
+
+ 	<h3>Tabela de produtos</h3>
+	<table>
+		<thead>
+			<th>Id</th>
+			<th>Preço</th>
+			<th>descricao</th>
+			<th>Fornecedor</th>
+			<th>Categoria</th>
+		</thead>
+		<tbody>
+			<tr th:each="produto : ${produtos}">
+				<td th:text="${produto.getId()}"></td>
+				<td th:text="${produto.getPreco()}"></td>
+				<td th:text="${produto.getDescricao()}"></td>
+				<td th:text="${produto.getFornecedor()}"></td>
+				<td th:text="${produto.getCategoria()}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

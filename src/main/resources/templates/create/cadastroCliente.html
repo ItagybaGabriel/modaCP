@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<a href="/">voltar</a>
+	<h2>Preencha os campos:</h2>
+	
+	<form method="post" action="/cliente/createCliente">
+		<p>
+			nome: <input type="text" name="nome" id="nome">
+		</p>
+		<p>
+			endereço: <input type="text" name="endereco" id="endereco">
+		</p>
+		<p>
+			telefone: <input type="text" name="telefone" id="telefone">
+		</p>
+		<input type="submit" value="Salvar" />
+	</form>
+
+ 	<h3>Tabela de Clientes</h3>
+	<table>
+		<thead>
+			<th>Id</th>
+			<th>nome</th>
+			<th>endereço</th>
+			<th>telefone</th>
+		</thead>
+		<tbody>
+			<tr th:each="cliente : ${clientes}">
+				<td th:text="${cliente.getId()}"></td>
+				<td th:text="${cliente.getNome()}"></td>
+				<td th:text="${cliente.getEndereco()}"></td>
+				<td th:text="${cliente.getTelefone()}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<a href="/">voltar</a>
+	<h2>Preencha os campos:</h2>
+	
+	<form method="post" action="/fornecedor/createFornecedor">
+		<p>
+			nome: <input type="text" name="nome" id="nome">
+		</p>
+		<p>
+			endereço: <input type="text" name="endereco" id="endereco">
+		</p>
+		<p>
+			telefone: <input type="text" name="telefone" id="telefone">
+		</p>
+		<input type="submit" value="Salvar" />
+	</form>
+
+ 	<h3>Tabela de fornecedores</h3>
+	<table>
+		<thead>
+			<th>Id</th>
+			<th>nome</th>
+			<th>endereço</th>
+			<th>telefone</th>
+		</thead>
+		<tbody>
+			<tr th:each="fornecedor : ${fornecedores}">
+				<td th:text="${fornecedor.getId()}"></td>
+				<td th:text="${fornecedor.getNome()}"></td>
+				<td th:text="${fornecedor.getEndereco()}"></td>
+				<td th:text="${fornecedor.getTelefone()}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
